@@ -1,6 +1,5 @@
 const socket = io.connect();
 
-
 /* socket.on("mensajesRecibidos", (mensajes) => {
   document.querySelector("p").innerText = mensajes;
 }); */
