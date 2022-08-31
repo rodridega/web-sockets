@@ -1,0 +1,33 @@
+<main class="container">
+  <h1>
+    Productos
+  </h1>
+  <div class="">
+    <table class="table table-dark">
+      <thead>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Foto</th>
+      </thead>
+      <tbody>
+        {{#each productos}}
+          <tr>
+
+            <td> {{this.nombre}} </td>
+            <td> ${{this.precio}} </td>
+            <td>
+              <img
+                src="{{this.urlImagen}}"
+                alt="{{this.nombre}}"
+                height="30px"
+              />
+            </td>
+
+          </tr>{{/each}}
+
+      </tbody>
+    </table>
+  </div>
+  <a href="/" class="btn btn-primary"> Volver al formulario </a>
+</main>
+ 

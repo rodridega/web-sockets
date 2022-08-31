@@ -1,0 +1,45 @@
+<main class="container">
+  <h1 class="text-center">
+    Productos Coder
+  </h1>
+
+  <form action="/" method="POST">
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        name="nombre"
+        placeholder="Nombre"
+      />
+    </div>
+    <div class="form-group">
+      <label for="Precio">Precio</label>
+      <input
+        type="number"
+        class="form-control"
+        name="precio"
+        id="precio"
+        placeholder="Precio"
+      />
+    </div>
+    <div class="form-group">
+      <label for="imagen">Url imagen</label>
+      <input
+        type="text"
+        class="form-control"
+        id="urlImagen"
+        name="urlImagen"
+        placeholder="imagen"
+      />
+    </div>
+    <button class="btn btn-success m-3" type="submit">Guardar</button>
+    <div>
+
+      <a href="productos" class="btn btn-primary m-3"> Ver productos </a>
+    </div>
+  </form>
+
+</main>
+{{> chat }}
