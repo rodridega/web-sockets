@@ -1,6 +1,6 @@
+const fetch = require("node-fetch")
 
 const saveProduct = async (data) => {
-    
     try {
         const response = await fetch('http://localhost:8080/api/productos', {
             method: 'POST', 
@@ -9,6 +9,7 @@ const saveProduct = async (data) => {
         })
         const result = await response.json()
         return result
+
 
     } catch (error) {
         let err = new Error(error)

@@ -1,8 +1,8 @@
 const socket = io.connect();
 
-/* socket.on("mensajesRecibidos", (mensajes) => {
-  document.querySelector("p").innerText = mensajes;
-}); */
+
+// PRODUCTOS
+
 const btnGuardar = document.getElementById("guardar");
 
 btnGuardar?.addEventListener("click", () => {
@@ -22,12 +22,14 @@ socket.on("todosLosProductos", (productos) => {
     document.getElementById("productos").innerHTML += `
     <tr> 
       <td>${producto.nombre}</td>
-      <td>AR$ ${producto.precio}</td>
+      <td>$ ${producto.precio}</td>
       <td><img src="${producto.urlImagen}" height="30px"></td>
     </tr>
     `;
   });
 });
+
+// CHAT
 
 const btnChat = document.getElementById("enviar");
 
@@ -37,7 +39,7 @@ btnChat?.addEventListener("click", () => {
     f.getMonth() + 1
   }/${f.getFullYear()} ${f.getHours()}:${f.getMinutes()}:${f.getSeconds()}`;
   const data = {
-    nombre: document.getElementById("username").value,
+    email: document.getElementById("email").value,
     fecha: fecha,
     mensaje: document.getElementById("text").value,
   };
@@ -46,15 +48,15 @@ btnChat?.addEventListener("click", () => {
   socket.emit("nuevoMensaje", data);
 });
 
-socket.on("todosLosMensajes", (chat) => {
+socket.on("todosLosMensajes", chat => {
   document.getElementById("messages").innerHTML = "";
   chat.forEach((mensaje) => {
     document.getElementById("messages").innerHTML += `
-            <div style="width:100vw">
-                <span class="fw-bold" style="color: blue;">${mensaje.nombre}</span>
+            <div class="w-100">
+                <span class="fw-bold" style="color: blue;">${mensaje.email}</span>
                 <span style="color: brown;">&nbsp[${mensaje.fecha}]</span>
                 <span class="fst-italic" style="color: green;">&nbsp: ${mensaje.mensaje}</span>
             </div>
     `;
   });
-});
+}); 

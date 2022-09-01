@@ -4,7 +4,7 @@ const readChat = require("./readChat")
 
 const insertChat = async (mensaje) => {
 
-    try {
+    try { 
         const chat = await readChat() 
         chat.push(mensaje)
         await fs.promises.writeFile('chat.txt', JSON.stringify(chat, null, 2), err => {

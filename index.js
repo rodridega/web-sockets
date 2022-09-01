@@ -24,11 +24,8 @@ app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", "./src/Handlebars/views");
 
-app.get("/", (req, res) => {
-  res.render("datos");
-});
 
-app.get("/productos", (req, res) => {
+app.get("/", (req, res) => {
   res.render("datos");
 });
 
@@ -39,14 +36,18 @@ io.on("connection", async (socket) => {
 
   socket.emit("todosLosProductos", productos);
 
-  const chatINFO = await readChat();
+ 
+ const chatINFO = await readChat();
+  
 
-  socket.emit("todosLosMensajes", chatINFO);
+socket.emit("todosLosMensajes", chatINFO);
+   
 
-  socket.on("productoGuardado", async (data) => {
+socket.on("productoGuardado", async (data) => {
     await saveProduct(data);
     io.sockets.emit("todosLosProductos", productos);
   });
+ 
 
   socket.on("nuevoMensaje", async (data) => {
     await insertChat(data);
