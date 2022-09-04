@@ -1,7 +1,0 @@
-[
-  {
-    "email": "Rodridega@gmail.com",
-    "fecha": "1/9/2022 17:37:31",
-    "mensaje": "Hola Coders!"
-  }
-]
